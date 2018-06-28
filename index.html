@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <head>
+
+        <!-- Meta, title, CSS, favicons, etc. -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+
+        <title>Matthew Monaco Genius 4.0</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="https://fonts.googleapis.com/css?family=Assistant:300|PT+Serif:400,700|Playfair+Display" rel="stylesheet">
+        <link href="styles.css?cache=2018062603" rel="stylesheet" media="screen, tv, projection">
+        <!--<link href="print.css" rel="stylesheet" media="print">-->
+        
+
+        <!-- Favicons -->
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="">
+        <link rel="shortcut icon" href="favicon.ico">
+
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-8532366-14"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-8532366-14');
+        </script>
+
+
+    </head>
+
+    <body class="start bg1">
+
+        <div class="wrapper nav-wrapper">
+
+            <nav class="overlay">
+                <ul class="nav__list">
+                    <li><i class="icon icon-monitor"></i> <a href="http://www.xeno-design.com">Portfolio / Blog</a></li>
+                    <li><i class="icon icon-layout"></i> <a href="https://www.behance.net/nanamiart">Behance</a></li>
+                    <li><i class="icon icon-github"></i> <a href="https://www.github.com/xdagency">Github</a></li>
+                    <li><i class="icon icon-heart"></i> <a href="/cv.pdf" target="_blank">Resume</a></li>
+                    <li><i class="icon icon-mail"></i> <a href="mailto:matt@xeno-design.com">matt@xeno-design.com</a></li>
+                </ul>
+            </nav>
+
+            <div class="menu">
+                <button class="menu__button close">Close <span><i class="icon-x"></i></span></button>
+                <button class="menu__button open">Menu <span><i class="icon-bar-chart-2"></i></span></button>
+            </div>
+
+        </div>
+
+        <div class="wrapper page-wrapper">
+
+            <h1 class="random">Web designer</h1>
+
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script>
+
+
+            // array of things to display on page
+            let randomText = [
+              'Web designer...',
+              'UX/UI designer...',
+              'Frontend developer...',
+              // 'Not a genius...',
+              'Web professional...',
+              'Student of design...',
+              'React developer...'
+            ];
+
+            let textDuration = 12;
+            let transitionDuration = (textDuration / 4);
+
+            // random number generator
+            function randomNum() {
+                return Math.floor(Math.random() * randomText.length);
+            }
+            
+            // when ready
+            $(document).ready(function() {
+
+                // set the initial index
+                let index = 0;
+                
+                // set initial value
+                $('.random').text(randomText[index]);
+
+                // delay the addClass so it happens between the changing of 2 items
+                setTimeout(function(){
+                  $('.random').addClass('blurInOut');
+                }, (transitionDuration * 1000))
+                
+                // update text every x seconds
+                setInterval(function() {
+
+                    // create a random index number
+                    let randomIndex = randomNum();
+                    // make sure it's not same number twice in a row
+                    while(randomIndex === index) {
+                      randomIndex = randomNum();
+                    }
+                    // set the index
+                    index = randomIndex;
+                    
+                    // change text in H1
+                    $('.random').text(randomText[index]);
+
+                }, (textDuration * 1000));
+
+                $('.open').click(function() {
+                    $('body').addClass('nav--open');
+                });
+
+                $('.close').click(function() {
+                    $('body').removeClass('nav--open');
+                });
+
+            })
+
+        </script>
+
+    </body>
+</html>
