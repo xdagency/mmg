@@ -42,11 +42,18 @@
 
             <nav class="overlay">
                 <ul class="nav__list">
-                    <li><i class="icon icon-monitor"></i> <a href="http://www.xeno-design.com">Portfolio / Blog</a></li>
-                    <li><i class="icon icon-layout"></i> <a href="https://www.behance.net/nanamiart">Behance</a></li>
+                    <li><i class="icon icon-monitor"></i> <a href="#0">Projects</a>
+                        <ul class="subnav">
+                            <li><a href="https://todo-wdft.herokuapp.com">Todo app (React)</a></li>
+                            <li><a href="https://mmdb-wdft.herokuapp.com">Movie Database (TMDB API, Express)</a></li>
+                            <li><a href="https://audio-wdft.herokuapp.com">Audio Player (React)</a></li>
+                            <li><a href="http://www.xeno-design.com/casestudy/ova">Ova (React Native, Sockets)</a></li>
+                        </ul>
+                    </li>
                     <li><i class="icon icon-github"></i> <a href="https://www.github.com/xdagency">Github</a></li>
                     <li><i class="icon icon-heart"></i> <a href="/cv.pdf" target="_blank">Resume</a></li>
-                    <li><i class="icon icon-mail"></i> <a href="mailto:matt@xeno-design.com">matt@xeno-design.com</a></li>
+                    <li><i class="icon icon-mail"></i> <a href="mailto:mattm16@gmail.com">mattm16@gmail.com</a></li>
+                    <li class="small"><i class="icon icon-layout"></i> <a href="http://www.xeno-design.com">View Design Portfolio &rarr;</a></li>
                 </ul>
             </nav>
 
@@ -69,12 +76,14 @@
 
             // array of things to display on page
             let randomText = [
-              'Web designer...',
-              'UX/UI designer...',
+              // 'Web designer...',
+              // 'UX/UI designer...',
+              // 'Student of design...',
               'Frontend developer...',
-              // 'Not a genius...',
               'Web professional...',
-              'Student of design...',
+              'SaSS expert...',
+              'Web standards enthusiast...',
+              'Backend developer...',
               'React developer...'
             ];
 
@@ -93,7 +102,7 @@
                 let index = 0;
                 
                 // set initial value
-                $('.random').text(randomText[index]);
+                $('.random').text(randomText[randomNum()]);
 
                 // delay the addClass so it happens between the changing of 2 items
                 setTimeout(function(){
@@ -117,6 +126,10 @@
 
                 }, (textDuration * 1000));
 
+
+                // NAVIGATION
+                
+                // main nav
                 $('.open').click(function() {
                     $('body').addClass('nav--open');
                 });
@@ -124,6 +137,11 @@
                 $('.close').click(function() {
                     $('body').removeClass('nav--open');
                 });
+
+                // subnav
+                $('ul.nav__list > li > a[href="#0"]').click(function() {
+                    $(this).parent().toggleClass('subnav--open');
+                })
 
             })
 

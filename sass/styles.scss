@@ -146,6 +146,7 @@ nav.overlay {
 
     // main nav list
     > ul.nav__list {
+        width: 66%;
         padding: 0; margin: 0;
         position: absolute;
         top: 50%; right: 2.2rem;
@@ -153,7 +154,7 @@ nav.overlay {
         opacity: 0;
         transition: opacity 0.5s ease-in-out;
         transition-delay: 0s;
-        //  border: 1px solid tomato;
+        // border: 1px solid tomato;
 
         > li {
             padding: 0; margin: 0;
@@ -177,9 +178,40 @@ nav.overlay {
                 font-size: 1.25rem;
             }
 
+            &.small {
+                margin-top: 1.1rem;
+                > a, > i {
+                    font-size: 0.95rem !important;
+                }
+            }
+
+            &.subnav--open > ul  {
+                height: auto;
+                padding: 0; margin: 0;
+                list-style: none;
+            }
+
         }
 
     }
+
+    ul.subnav {
+        height: 0;
+        max-width: 100%;
+        overflow: hidden;
+        transition: all 0.33s ease-in-out;
+        > li {
+            padding: 3px 0 3px 12px;
+            &:last-child {
+                padding-bottom: 16px;
+            }
+            > a {
+                font: normal 1rem/100% 'Assistant', sans-serif;
+                color: white;
+            }
+        }
+    }
+
 }
 
 
@@ -292,6 +324,7 @@ h1.random {
     }
 
     nav.overlay ul.nav__list {
+        width: 33%;
         right: 5rem;
         > li > a { font-size: 1.33rem; }
         > li > i { font-size: 1.3rem; }
@@ -319,8 +352,9 @@ h1.random {
     }
 
     nav.overlay ul.nav__list {
+        width: 26%;
         right: 5.5rem;
-        > li > a { font-size: 1.55rem; }
+        > li > a { font-size: 1.39rem; }
     }
 
     body.nav--open {
